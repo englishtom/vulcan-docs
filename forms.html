@@ -142,6 +142,13 @@
                 </a>
               </li>
             
+              
+              <li class="item-toc ">
+                <a href="common-problems.html" class="sidebar-link ">
+                  <span>Common Problems</span>
+                </a>
+              </li>
+            
           </ul>
         </li>
       
@@ -210,13 +217,6 @@
               </li>
             
               
-              <li class="item-toc  current">
-                <a href="" class="sidebar-link  current">
-                  <span>Forms</span>
-                </a>
-              </li>
-            
-              
               <li class="item-toc ">
                 <a href="core-components.html" class="sidebar-link ">
                   <span>Core Components</span>
@@ -269,6 +269,36 @@
               <li class="item-toc ">
                 <a href="settings.html" class="sidebar-link ">
                   <span>Settings</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Forms</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
+                  <span>Forms</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="forms-custom.html" class="sidebar-link ">
+                  <span>Custom Form Components</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="forms-upload.html" class="sidebar-link ">
+                  <span>Upload Package</span>
                 </a>
               </li>
             
@@ -413,13 +443,6 @@
             
               
               <li class="item-toc ">
-                <a href="debugging.html" class="sidebar-link ">
-                  <span>Debugging</span>
-                </a>
-              </li>
-            
-              
-              <li class="item-toc ">
                 <a href="plugins.html" class="sidebar-link ">
                   <span>Plugins</span>
                 </a>
@@ -510,35 +533,8 @@
 </ul>
 <p>The highest-priority value is the user input. If there is no user input, we default to the database value provided by the <code>props</code>. And if that one is empty too, we then look for autofilled values. </p>
 <h2 id="i18n"><a href="#i18n" class="headerlink" title="i18n"></a>i18n</h2><p>This package uses <a href="https://github.com/yahoo/react-intl/" target="_blank" rel="external">React Intl</a> to automatically translate all labels. In order to do so it expects an <code>intl</code> object ot be passed as part of its context. For example, in a parent component: </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getChildContext() &#123;</span><br><span class="line">  <span class="keyword">const</span> intlProvider = <span class="keyword">new</span> IntlProvider(&#123;<span class="attr">locale</span>: myLocale&#125;, myMessages);</span><br><span class="line">  <span class="keyword">const</span> &#123;intl&#125; = intlProvider.getChildContext();</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">intl</span>: intl</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getChildContext() &#123;</span><br><span class="line">  <span class="keyword">const</span> intlProvider = <span class="keyword">new</span> IntlProvider(&#123;locale: myLocale&#125;, myMessages);</span><br><span class="line">  <span class="keyword">const</span> &#123;intl&#125; = intlProvider.getChildContext();</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    intl: intl</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Alternative-Approach"><a href="#Alternative-Approach" class="headerlink" title="Alternative Approach"></a>Alternative Approach</h4><p>If you prefer, you can also code your own forms from scratch, either using <code>withNew</code>, <code>withEdit</code>, and <code>withRemove</code>, or with your own custom mutation HoCs. </p>
-<h2 id="Form-Components"><a href="#Form-Components" class="headerlink" title="Form Components"></a>Form Components</h2><ul>
-<li><a href="forms-upload.html">Upload</a></li>
-</ul>
-<h2 id="Custom-Components"><a href="#Custom-Components" class="headerlink" title="Custom Components"></a>Custom Components</h2><p>You’ll often need to write your own form components. Fortunately, VulcanJS makes it relatively easy. The main thing you need to figure out is how your custom component will pass its value to the form’s data in order to submit it back to the server. </p>
-<p>There are two main ways to do so.</p>
-<h3 id="Using-an-Input"><a href="#Using-an-Input" class="headerlink" title="Using an Input"></a>Using an Input</h3><p>The easiest way is simply to store this value in an input form element. While this won’t work with a regular <code>&lt;input/&gt;</code>, it will work with any <a href="https://github.com/christianalfoni/formsy-react" target="_blank" rel="external">Formsy</a> element.</p>
-<p>In other words, you can include any of the <a href="https://github.com/twisty/formsy-react-components" target="_blank" rel="external">Formsy React Components</a> inside your own custom component, and that component’s value will automatically be picked up by the form when it’s submitted. </p>
-<p>For example, a useful pattern might be including a hidden Formsy <code>&lt;Input/&gt;</code>, and updating its value via your custom component’s <code>state</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; PureComponent &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Input &#125; <span class="keyword">from</span> <span class="string">'formsy-react-component'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCustomFormComponent</span> <span class="keyword">extends</span> <span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.toggleMessage = <span class="keyword">this</span>.toggleMessage.bind(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      message = <span class="string">'foo'</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toggleMessage() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      <span class="attr">message</span>: <span class="keyword">this</span>.state.message === <span class="string">'foo'</span> ? <span class="string">'bar'</span> : <span class="string">'foo'</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"form-group row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">className</span>=<span class="string">"control-label col-sm-3"</span>&gt;</span>&#123;this.props.label&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"col-sm-9"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Message is: &#123;this.state.message&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">onClick</span>=<span class="string">&#123;this.toggleMessage&#125;</span>&gt;</span>Toggle Message<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">Input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"message"</span> <span class="attr">value</span>=<span class="string">&#123;this.state.message&#125;/</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default MyCustomFormComponent;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Using-a-Callback"><a href="#Using-a-Callback" class="headerlink" title="Using a Callback"></a>Using a Callback</h3><p>Another method to achieve the same thing is to call <code>this.context.updateCurrentValues()</code> directly. This function takes an object and will update the parent <code>Form</code> component’s state with its properties:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; PureComponent &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Input &#125; <span class="keyword">from</span> <span class="string">'formsy-react-component'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCustomFormComponent</span> <span class="keyword">extends</span> <span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.toggleMessage = <span class="keyword">this</span>.toggleMessage.bind(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      message = <span class="string">'foo'</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toggleMessage() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      <span class="attr">message</span>: <span class="keyword">this</span>.state.message === <span class="string">'foo'</span> ? <span class="string">'bar'</span> : <span class="string">'foo'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">this</span>.context.updateCurrentValues(&#123;<span class="attr">message</span>: <span class="keyword">this</span>.state.message&#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"form-group row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span> <span class="attr">className</span>=<span class="string">"control-label col-sm-3"</span>&gt;</span>&#123;this.props.label&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"col-sm-9"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>Message is: &#123;this.state.message&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">onClick</span>=<span class="string">&#123;this.toggleMessage&#125;</span>&gt;</span>Toggle Message<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyCustomFormComponent.contextTypes = &#123;</span><br><span class="line">  <span class="attr">updateCurrentValues</span>: PropTypes.func,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> MyCustomFormComponent;</span><br></pre></td></tr></table></figure>
-<p>Note that you’ll need to define your custom component’s <code>contextTypes</code> property to make <code>updateCurrentValues</code> available on the component’s <code>context</code>.</p>
-<h3 id="SmartForms-API"><a href="#SmartForms-API" class="headerlink" title="SmartForms API"></a>SmartForms API</h3><p>Here’s an overview of the API methods available on a custom component’s <code>context</code>:</p>
-<h4 id="updateCurrentValues-object"><a href="#updateCurrentValues-object" class="headerlink" title="updateCurrentValues(object)"></a><code>updateCurrentValues(object)</code></h4><p>This takes an object with <code>name: value</code> pairs, and will update the form state accordingly. </p>
-<h4 id="addToAutofilledValues-object"><a href="#addToAutofilledValues-object" class="headerlink" title="addToAutofilledValues(object)"></a><code>addToAutofilledValues(object)</code></h4><p>This adds a set of <code>name: value</code> pairs to the form’s <em>autofilled</em> values. Autofilled values have a lower priority than “current” values. In other words, if someone fills in the <code>foo</code> field with <code>bar</code> but you then call <code>addToAutofilledValues({foo: &#39;baz&#39;})</code>, the contents of <code>foo</code> will not change. </p>
-<p>This is useful when you want the value of one field to affect the contents or another, except when that other field has already been filled out. </p>
-<h4 id="getAutofilledValues"><a href="#getAutofilledValues" class="headerlink" title="getAutofilledValues()"></a><code>getAutofilledValues()</code></h4><p>Get just the autofilled values.</p>
-<h4 id="addToDeletedValues-string"><a href="#addToDeletedValues-string" class="headerlink" title="addToDeletedValues(string)"></a><code>addToDeletedValues(string)</code></h4><p>This takes a single <strong>field name</strong> and adds it to the list of document properties to be deleted on the server once the form is submitted. </p>
-<p>Note that once a field is added to the form state’s <code>deletedValues</code>, it will be deleted even if said field contains a value. </p>
-<h4 id="addToSubmitForm-function"><a href="#addToSubmitForm-function" class="headerlink" title="addToSubmitForm(function)"></a><code>addToSubmitForm(function)</code></h4><p>Adds a callback that will be called on the <code>data</code> object containing all form values when the form is submitted.</p>
-<h4 id="addToFailureForm-function"><a href="#addToFailureForm-function" class="headerlink" title="addToFailureForm(function)"></a><code>addToFailureForm(function)</code></h4><p>Adds a callback that will run with the <code>error</code> as argument if the form submission fails. </p>
-<h4 id="addToSuccessForm-function"><a href="#addToSuccessForm-function" class="headerlink" title="addToSuccessForm(function)"></a><code>addToSuccessForm(function)</code></h4><p>Adds a callback that will run with the <code>result</code> as argument if the form submission succeeds.</p>
-<h4 id="throwError-object"><a href="#throwError-object" class="headerlink" title="throwError(object)"></a><code>throwError(object)</code></h4><p>Throws an error.</p>
-<h4 id="clearForm"><a href="#clearForm" class="headerlink" title="clearForm()"></a><code>clearForm()</code></h4><p>Clears the form.</p>
-<h4 id="getDocument-1"><a href="#getDocument-1" class="headerlink" title="getDocument()"></a><code>getDocument()</code></h4><p>Gets the entire document currently being inserted or edited. </p>
-<h4 id="setFormState-object"><a href="#setFormState-object" class="headerlink" title="setFormState(object)"></a><code>setFormState(object)</code></h4><p>Calls <code>setState</code> inside the <code>Form</code> component directly. Can be used as a more general method to affect form state whenever the previous API methods are not sufficient. For example, to set the form as disabled:</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">this</span><span class="selector-class">.context</span><span class="selector-class">.setFormState</span>(&#123;<span class="attribute">disabled</span>: true&#125;);</span><br></pre></td></tr></table></figure>
 
     </div>
   </div>
@@ -548,17 +544,17 @@
       
       
         <a class="link primary prev"
-          href="theming.html">
+          href="settings.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          Components & Theming
+          Settings
         </a>
       
       
         <a class="link primary next"
-          href="core-components.html">
+          href="forms-custom.html">
           <span class="subtitle-pagination">Next</span>
-          Core Components
+          Custom Form Components
           <span class="icon-arrow-right-alt"></span>
         </a>
       
