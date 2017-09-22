@@ -513,8 +513,9 @@
 
     <div class="document-formatting">
       <p>You can configure the following settings in your <code>settings.json</code> file.</p>
-<h2 id="Public-Settings"><a href="#Public-Settings" class="headerlink" title="Public Settings"></a>Public Settings</h2><p>These settings are defined on the <code>public</code> property, meaning they will be shared with the client. </p>
-<h3 id="Global-Settings"><a href="#Global-Settings" class="headerlink" title="Global Settings"></a>Global Settings</h3><table>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>You can call Vulcan.showSettings() in your meteor shell to get a quick overview of all settings, or go to <code>/settings</code> if you have the <code>vulcan:debug</code> package enabled. </p>
+<h3 id="Public-Settings"><a href="#Public-Settings" class="headerlink" title="Public Settings"></a>Public Settings</h3><p>These settings are defined on the <code>public</code> property, meaning they will be shared with the client. </p>
+<h4 id="Global-Settings"><a href="#Global-Settings" class="headerlink" title="Global Settings"></a>Global Settings</h4><table>
 <thead>
 <tr>
 <th>Setting</th>
@@ -545,63 +546,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Content-Settings"><a href="#Content-Settings" class="headerlink" title="Content Settings"></a>Content Settings</h3><table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Example</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enableNotifications</td>
-<td>true</td>
-<td>Whether to enable email notifications</td>
-</tr>
-<tr>
-<td>postInterval</td>
-<td>20</td>
-<td>How long, in seconds, to make users wait between submitting posts</td>
-</tr>
-<tr>
-<td>commentInterval</td>
-<td>20</td>
-<td>How long, in seconds, to make users wait between commenting</td>
-</tr>
-<tr>
-<td>maxPostsPerDay</td>
-<td>10</td>
-<td>How many posts a user can submit per day</td>
-</tr>
-<tr>
-<td>RSSLinksPointTo</td>
-<td>“link”/“page”</td>
-<td>Whether to point RSS links to the linked site or back to your own site</td>
-</tr>
-<tr>
-<td>postsPerPage</td>
-<td>10</td>
-<td>How many posts to display per page</td>
-</tr>
-<tr>
-<td>thumbnailWidth</td>
-<td>800</td>
-<td>Posts thumbnails width</td>
-</tr>
-<tr>
-<td>thumbnailHeight</td>
-<td>600</td>
-<td>Posts thumbnails height</td>
-</tr>
-<tr>
-<td>scoreUpdateInterval</td>
-<td>30</td>
-<td>How often, in seconds, to update posts scores. Set to <code>0</code> to disable score updating</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Social-Settings"><a href="#Social-Settings" class="headerlink" title="Social Settings"></a>Social Settings</h3><table>
+<h4 id="Social-Settings"><a href="#Social-Settings" class="headerlink" title="Social Settings"></a>Social Settings</h4><table>
 <thead>
 <tr>
 <th>Setting</th>
@@ -627,44 +572,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Newsletter-Settings"><a href="#Newsletter-Settings" class="headerlink" title="Newsletter Settings"></a>Newsletter Settings</h3><table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Example</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enableNewsletter</td>
-<td>false</td>
-<td>Enable the automated newsletter</td>
-</tr>
-<tr>
-<td>enableNewsletterInDev</td>
-<td>false</td>
-<td>Enable the automated newsletter while in development mode</td>
-</tr>
-<tr>
-<td>newsletterFrequency</td>
-<td>[1,2,3,4,5,6,7]</td>
-<td>The days on which to send the newsletter (1 = Monday, 2 = Tuesday, etc.)</td>
-</tr>
-<tr>
-<td>newsletterTime</td>
-<td>“07:55”</td>
-<td>When to send out the newsletter</td>
-</tr>
-<tr>
-<td>autoSubscribe</td>
-<td>false</td>
-<td>Whether new users should be automatically subscribed to the newsletter</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Server-Settings"><a href="#Server-Settings" class="headerlink" title="Server Settings"></a>Server Settings</h2><p>These settings are defined on the <code>private</code> property, and kept on the server.</p>
-<h3 id="Global-Settings-1"><a href="#Global-Settings-1" class="headerlink" title="Global Settings"></a>Global Settings</h3><table>
+<h3 id="Server-Settings"><a href="#Server-Settings" class="headerlink" title="Server Settings"></a>Server Settings</h3><p>These settings are defined on the <code>private</code> property, and kept on the server.</p>
+<h4 id="Global-Settings-1"><a href="#Global-Settings-1" class="headerlink" title="Global Settings"></a>Global Settings</h4><table>
 <thead>
 <tr>
 <th>Setting</th>
@@ -680,10 +589,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="OAuth-Settings"><a href="#OAuth-Settings" class="headerlink" title="OAuth Settings"></a>OAuth Settings</h3><p>You can use the settings file to store your oAuth configurations:</p>
+<h4 id="OAuth-Settings"><a href="#OAuth-Settings" class="headerlink" title="OAuth Settings"></a>OAuth Settings</h4><p>You can use the settings file to store your oAuth configurations:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"oAuth"</span>: &#123;</span><br><span class="line">  <span class="string">"twitter"</span>: &#123;</span><br><span class="line">    <span class="string">"consumerKey"</span>: <span class="string">"foo"</span>,</span><br><span class="line">    <span class="string">"secret"</span>: <span class="string">"bar"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"facebook"</span>: &#123;</span><br><span class="line">    <span class="string">"appId"</span>: <span class="string">"foo"</span>,</span><br><span class="line">    <span class="string">"secret"</span>: <span class="string">"bar"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Categories"><a href="#Categories" class="headerlink" title="Categories"></a>Categories</h3><p>If you define categories in your settings file, they will be automatically imported into your database at app launch:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"categories"</span>: [</span><br><span class="line">  &#123;<span class="string">"name"</span>: <span class="string">"Android"</span>&#125;,</span><br><span class="line">  &#123;<span class="string">"name"</span>: <span class="string">"iOS"</span>&#125;,</span><br><span class="line">  &#123;<span class="string">"name"</span>: <span class="string">"Mac"</span>&#125;,</span><br><span class="line">  &#123;<span class="string">"name"</span>: <span class="string">"PC"</span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="registerSetting"><a href="#registerSetting" class="headerlink" title="registerSetting"></a>registerSetting</h2><p>You can optionally register a new setting with <code>registerSetting(name, defaultValue, description)</code>. This is optional, but it will let your setting be displayed on the <code>/settings</code> route and when calling <code>Vulcan.showSettings()</code>. </p>
+<h2 id="getSetting"><a href="#getSetting" class="headerlink" title="getSetting"></a>getSetting</h2><p>To retrieve a setting, just call <code>getSetting(settingName)</code>. If no setting has been assigned in <code>settings.json</code>, the default value assigned through <code>registerSetting</code> will be used (if it exists).</p>
 
     </div>
   </div>

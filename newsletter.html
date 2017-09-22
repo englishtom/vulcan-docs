@@ -572,6 +572,42 @@
 <li><code>Newsletters.providerName.send({ title, subject, text, html, isTest})</code>: send a newsletter. </li>
 </ul>
 <h2 id="NewsletterSubscribe-Component"><a href="#NewsletterSubscribe-Component" class="headerlink" title="NewsletterSubscribe Component"></a>NewsletterSubscribe Component</h2><p>This package also exports a <code>NewsletterSubscribe</code> custom form field component used to add a subscribe/unsubscribe button to the user account page. </p>
+<h2 id="Settings-1"><a href="#Settings-1" class="headerlink" title="Settings"></a>Settings</h2><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enableNewsletter</td>
+<td>false</td>
+<td>Enable the automated newsletter</td>
+</tr>
+<tr>
+<td>enableNewsletterInDev</td>
+<td>false</td>
+<td>Enable the automated newsletter while in development mode</td>
+</tr>
+<tr>
+<td>newsletterFrequency</td>
+<td>[1,2,3,4,5,6,7]</td>
+<td>The days on which to send the newsletter (1 = Monday, 2 = Tuesday, etc.)</td>
+</tr>
+<tr>
+<td>newsletterTime</td>
+<td>“07:55”</td>
+<td>When to send out the newsletter</td>
+</tr>
+<tr>
+<td>autoSubscribe</td>
+<td>false</td>
+<td>Whether new users should be automatically subscribed to the newsletter</td>
+</tr>
+</tbody>
+</table>
 
     </div>
   </div>
