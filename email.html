@@ -541,6 +541,7 @@
 <ul>
 <li>Queries can accept variables, which will be passed by <code>VulcanEmail.buildAndSend()</code> (see below); or <code>testVariables</code> when testing.</li>
 <li>A single query can query resolvers for entirely different collections. This lets you mix-and-match different data types in the same email. </li>
+<li>If the default resolvers (<code>FooList</code>, <code>FooSingle</code>, etc.) don’t return the data you need for a specific email, don’t forget you can also create your own custom resolvers with <code>addGraphQLResolvers</code> and <code>addGraphQLQuery</code>.</li>
 </ul>
 <h2 id="Email-Templates"><a href="#Email-Templates" class="headerlink" title="Email Templates"></a>Email Templates</h2><p>Unlike components, emails don’t use React but the <a href="http://handlebarsjs.com/" target="_blank" rel="external">Handlebars</a> templating language. Before you can use a template with Vulcan’s email system, you’ll need to register it. </p>
 <p>In order to register a new template or override an existing one, first you must import it as a text asset in your <code>package.js</code> file (or store it in your <code>/public</code> directory):</p>

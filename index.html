@@ -539,6 +539,20 @@
 <p>At this stage, you can either continue using Vulcan’s basic building blocks, or enable the more advanced forum features by checking out the <a href="example-forum.html"><code>example-forum</code></a> package. </p>
 <p>And if you’d like to use and customize the forum packages, you can then follow up with the <a href="example-customization.html">customization example tutorial</a> tutorial, which will take you through the code of the included <code>example-customization</code> package and show you how to adapt Vulcan packages to your needs without modifying their code directly, by tweaking styles, overriding components, and inserting your own logic in Vulcan’s back-end. </p>
 <p>You can also check out <a href="https://www.youtube.com/channel/UCGIvQQ6zw7ov2cHgD70HFlA" target="_blank" rel="external">Vulcan’s YouTube channel</a> to learn more about the framework. </p>
+<h2 id="Two-Repo-Install"><a href="#Two-Repo-Install" class="headerlink" title="Two-Repo Install"></a>Two-Repo Install</h2><p>In order to make working with Vulcan easier (especially when it comes to updating the core packages), you can follow the “two-repo” pattern, with the two repository being: </p>
+<ol>
+<li>A clone of <a href="https://github.com/VulcanJS/Vulcan/" target="_blank" rel="external">the main Vulcan repo</a>. </li>
+<li>Your own Meteor project, using the first repo as its package source.</li>
+</ol>
+<p>Follow these steps to get set up:</p>
+<ol>
+<li>Clone the main <a href="https://github.com/VulcanJS/Vulcan" target="_blank" rel="external">VulcanJS repo</a> locally (for example, to <code>~/Vulcan</code>).</li>
+<li>Create a new Meteor project or clone the <a href="https://github.com/VulcanJS/Vulcan-Starter" target="_blank" rel="external">Vulcan starter repo</a> (this will become your project’s repo).</li>
+<li>Inside your project repo, launch Vulcan with:</li>
+</ol>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">METEOR_PACKAGE_DIRS=</span><span class="string">"~/Vulcan/packages"</span> <span class="string">meteor </span><span class="built_in">--port</span> <span class="string">3000 </span><span class="built_in">--settings</span> <span class="string">settings.</span><span class="string">json</span></span><br></pre></td></tr></table></figure>
+<p>Note that if you’d like, you can create an alias for that command in your <code>.bash_profile</code> file:</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> runvulcan=<span class="symbol">'METEOR_PACKAGE_DIRS</span>=<span class="string">"~/Vulcan/packages"</span> meteor <span class="comment">--port 3000 --settings settings.json'</span></span><br></pre></td></tr></table></figure>
 <h2 id="Technology"><a href="#Technology" class="headerlink" title="Technology"></a>Technology</h2><p>Vulcan is built on top of three main open-source technologies: React, GraphQL, and Meteor. </p>
 <ul>
 <li><a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a> is Vulcan’s front-end library.</li>
